@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+*.pyc
+.venv/
+venv/
+.env
+.env.local
+*.hf_env
+.vllm_proxy.env
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# State / generated
+.ehc/
+state.json
+generated/
+
+# IDE
+.vscode/
+.idea/
+*.swp

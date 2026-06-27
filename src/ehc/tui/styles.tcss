@@ -1,0 +1,89 @@
+/* EHC Installer — Textual CSS theme */
+
+Screen {
+    background: $surface;
+}
+
+Header {
+    dock: top;
+    background: $primary;
+    color: $text;
+    height: 1;
+}
+
+Footer {
+    dock: bottom;
+    background: $primary-darken-2;
+}
+
+.title {
+    text-style: bold;
+    color: $accent;
+    padding: 1 0;
+}
+
+.section {
+    border: round $primary;
+    padding: 1 2;
+    margin: 1 2;
+}
+
+.card {
+    border: tall $secondary;
+    background: $boost;
+    padding: 1 2;
+    margin: 0 1;
+}
+
+DataTable {
+    margin: 1 0;
+}
+
+DataTable > .datatable--header {
+    background: $primary-darken-2;
+    text-style: bold;
+}
+
+#welcome-box {
+    width: 70;
+    height: auto;
+    margin: 4 auto;
+    border: thick $accent;
+    padding: 2 4;
+    background: $boost;
+}
+
+#welcome-title {
+    text-align: center;
+    text-style: bold;
+    color: $accent;
+    padding: 1 0;
+}
+
+#detect-grid {
+    grid-size: 2 2;
+    grid-gutter: 1 2;
+    padding: 1 2;
+}
+
+.success { color: $success; text-style: bold; }
+.warn    { color: $warning; text-style: bold; }
+.error   { color: $error; text-style: bold; }
+.dim     { color: $text-muted; }
+
+Button {
+    min-width: 16;
+    margin: 0 1;
+}
+
+Button.primary {
+    background: $accent;
+    color: $text;
+}
+
+LogPanel {
+    border: round $primary;
+    background: $boost;
+    height: 1fr;
+    margin: 1 2;
+}
