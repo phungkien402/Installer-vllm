@@ -15,6 +15,7 @@ class DetectScreen(Screen):
 
     BINDINGS = [
         Binding("escape", "app.pop_screen", "Back"),
+        Binding("h", "app.home", "Home"),
         Binding("r", "refresh", "Refresh"),
         Binding("n", "next", "Next"),
     ]
@@ -34,6 +35,7 @@ class DetectScreen(Screen):
             yield Label("[bold]Dependencies[/]", classes="title")
             yield DataTable(id="deps-table")
         with Horizontal():
+            yield Button("🏠 Home", id="btn-home")
             yield Button("Refresh", id="btn-refresh", variant="primary")
             yield Button(
                 "Next: install deps →" if self.start_flow else "Back",
@@ -91,6 +93,8 @@ class DetectScreen(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         match event.button.id:
+            case "btn-home":
+                self.app.action_home()
             case "btn-refresh":
                 self._populate()
             case "btn-next":

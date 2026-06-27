@@ -19,9 +19,13 @@ class DoneScreen(Screen):
                     "  • Get handover doc via [bold]ehc stack info[/].\n"
                     "  • Test endpoints with [bold]ehc stack test[/].\n"
                 )
-                yield Button("Exit", id="btn-exit", variant="primary")
+                yield Button("🏠 Back to Home", id="btn-home", variant="primary")
+                yield Button("Exit", id="btn-exit")
         yield Footer()
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "btn-exit":
-            self.app.exit()
+        match event.button.id:
+            case "btn-home":
+                self.app.action_home()
+            case "btn-exit":
+                self.app.exit()

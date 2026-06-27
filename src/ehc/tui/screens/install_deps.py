@@ -22,6 +22,7 @@ DEP_INSTALLERS = {
 class InstallDepsScreen(Screen):
     BINDINGS = [
         Binding("escape", "app.pop_screen", "Back"),
+        Binding("h", "app.home", "Home"),
         Binding("a", "select_all", "Select all"),
     ]
 
@@ -47,6 +48,7 @@ class InstallDepsScreen(Screen):
             yield RichLog(id="install-log", highlight=True, markup=True)
 
         with Horizontal():
+            yield Button("🏠 Home", id="btn-home")
             yield Button("Install selected", id="btn-install", variant="success")
             yield Button("Skip → Next", id="btn-skip", variant="primary")
             yield Button("Back", id="btn-back")
@@ -58,6 +60,8 @@ class InstallDepsScreen(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         match event.button.id:
+            case "btn-home":
+                self.app.action_home()
             case "btn-install":
                 self.run_worker(self._do_install(), exclusive=True)
             case "btn-skip":

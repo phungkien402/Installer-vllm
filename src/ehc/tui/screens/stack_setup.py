@@ -13,7 +13,10 @@ from ehc.core import stack as stack_mod
 
 
 class StackSetupScreen(Screen):
-    BINDINGS = [Binding("escape", "app.pop_screen", "Back")]
+    BINDINGS = [
+        Binding("escape", "app.pop_screen", "Back"),
+        Binding("h", "app.home", "Home"),
+    ]
 
     def __init__(self):
         super().__init__()
@@ -46,6 +49,7 @@ class StackSetupScreen(Screen):
             yield RichLog(id="stack-log", highlight=True, markup=True)
 
         with Horizontal():
+            yield Button("🏠 Home", id="btn-home")
             yield Button("Run setup", id="btn-setup", variant="success")
             yield Button("Back", id="btn-back")
             yield Button("Show handover info", id="btn-info", variant="primary")
@@ -54,6 +58,8 @@ class StackSetupScreen(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         match event.button.id:
+            case "btn-home":
+                self.app.action_home()
             case "btn-setup":
                 self.run_worker(self._do_setup(), exclusive=True)
             case "btn-back":

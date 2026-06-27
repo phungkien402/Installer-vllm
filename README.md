@@ -9,10 +9,10 @@
 
 ```bash
 # 1-line install
-curl -fsSL https://raw.githubusercontent.com/phungkien402/ehc-installer/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/phungkien402/installer-vllm/main/install.sh | bash
 
 # Hoặc clone manual
-git clone https://github.com/phungkien402/ehc-installer.git
+git clone https://github.com/phungkien402/installer-vllm.git
 cd ehc-installer
 bash install.sh
 
@@ -151,7 +151,7 @@ Stack setup tự clone `github.com/phungkien402/ocr` (configurable). User chỉ 
 ## Dev mode
 
 ```bash
-git clone https://github.com/phungkien402/ehc-installer.git
+git clone https://github.com/phungkien402/installer-vllm.git
 cd ehc-installer
 python3 -m venv .venv
 source .venv/bin/activate
@@ -189,12 +189,12 @@ git init
 git add .
 git commit -m "Initial commit: ehc-installer phase 1"
 git branch -M main
-git remote add origin https://github.com/phungkien402/ehc-installer.git
+git remote add origin https://github.com/phungkien402/installer-vllm.git
 git push -u origin main
 ```
 
 Sau đó server BV chỉ cần:
 ```bash
-curl -fsSL https://raw.githubusercontent.com/phungkien402/ehc-installer/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/phungkien402/installer-vllm/main/install.sh | bash
 ehc
 ```

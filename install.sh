@@ -10,9 +10,9 @@
 
 set -euo pipefail
 
-REPO="${EHC_REPO:-https://github.com/phungkien402/ehc-installer.git}"
+REPO="${EHC_REPO:-https://github.com/phungkien402/installer-vllm.git}"
 BRANCH="${EHC_BRANCH:-main}"
-INSTALL_DIR="${EHC_INSTALL_DIR:-$HOME/ehc-installer}"
+INSTALL_DIR="${EHC_INSTALL_DIR:-$HOME/installer-vllm}"
 
 color() { printf "\033[%sm%s\033[0m\n" "$1" "$2"; }
 ok()    { color "32" "✓ $1"; }

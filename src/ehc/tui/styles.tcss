@@ -47,7 +47,7 @@ DataTable > .datatable--header {
 #welcome-box {
     width: 70;
     height: auto;
-    margin: 4 auto;
+    margin: 4 2;
     border: thick $accent;
     padding: 2 4;
     background: $boost;

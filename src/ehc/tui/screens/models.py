@@ -29,6 +29,7 @@ class ModelsScreen(Screen):
 
     BINDINGS = [
         Binding("escape", "app.pop_screen", "Back"),
+        Binding("h", "app.home", "Home"),
         Binding("a", "add_focus", "Add field"),
     ]
 
@@ -66,6 +67,7 @@ class ModelsScreen(Screen):
             yield RichLog(id="model-log", highlight=True, markup=True)
 
         with Horizontal():
+            yield Button("🏠 Home", id="btn-home")
             yield Button("Recompute plan", id="btn-replan", variant="primary")
             yield Button("Install all", id="btn-install", variant="success")
             yield Button("Clear queue", id="btn-clear")
@@ -91,6 +93,9 @@ class ModelsScreen(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         match event.button.id:
+            case "btn-home":
+                self.app.action_home()
+                return
             case "btn-add":
                 self._add_model()
             case "btn-replan":
