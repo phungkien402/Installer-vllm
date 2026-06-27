@@ -25,10 +25,17 @@ class EHCInstallerApp(App):
         self.push_screen(WelcomeScreen())
 
     def action_home(self) -> None:
-        """Pop về Welcome screen (luôn ở dưới cùng stack)."""
-        # Pop hết các screen cho đến khi chỉ còn 1 (Welcome)
-        while len(self.screen_stack) > 1:
+        """Pop về Welcome screen — giữ ở top stack."""
+        from ehc.tui.screens.welcome import WelcomeScreen
+
+        # Pop hết screen ở trên Welcome. Welcome luôn ở stack[1] (stack[0] là default).
+        # Phòng trường hợp Welcome bị pop nhầm → push fresh.
+        while len(self.screen_stack) > 2:
             self.pop_screen()
+
+        # Nếu vì lý do gì đó current screen không phải Welcome → switch
+        if not isinstance(self.screen, WelcomeScreen):
+            self.switch_screen(WelcomeScreen())
 
     def action_help(self) -> None:
         from ehc.tui.screens.help import HelpScreen
